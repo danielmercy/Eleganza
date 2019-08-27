@@ -1,19 +1,40 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import {Container} from "./components";
+import Authentication from "./screens/Authenticationon";
+import Navigation from './navigation';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+export default class App extends React.Component {
+  state = {
+    isLoadingComplete: false
+  };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+  // handleResourcesAsync = async () => {
+  //   // we're caching all the images
+  //   // for better performance on the app
+
+  //   const cacheImages = images.map(image => {
+  //     return Asset.fromModule(image).downloadAsync();
+  //   });
+
+  //   return Promise.all(cacheImages);
+  // }
+
+  render() {
+    // if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
+    //   return (
+    //     <AppLoading
+    //       startAsync={this.handleResourcesAsync}
+    //       onError={error => console.warn(error)}
+    //       onFinish={() => this.setState({ isLoadingComplete: true })}
+    //     />
+    //   )
+    // }
+
+    return (
+      <View>
+        <Authentication></Authentication>
+      </View>
+    );
   }
-});
+}
